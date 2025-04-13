@@ -1,0 +1,52 @@
+@use "../../variables.scss" as v;
+
+.headerContainer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  height: 102px;
+}
+
+.logoContainer {
+  position: relative;
+  bottom: -4px;
+
+  svg {
+    color: initial;
+  }
+}
+
+.navigationContainer {
+  margin-left: 40px;
+  display: flex;
+  gap: 40px;
+  font-family: v.$font-monaSans;
+}
+
+.navLink {
+  color: initial;
+  text-decoration: none;
+}
+
+.authContainer {
+  margin-left: auto;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.logUpBtn {
+  background: none;
+  border: none;
+  margin-right: 10px;
+}
+
+.logInBtn {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 30px;
+}
