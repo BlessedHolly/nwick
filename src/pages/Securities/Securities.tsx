@@ -9,7 +9,7 @@ type Stock = {
 };
 
 function Securities() {
-  const { data, isSuccess } = useGetStockQuotesQuery(undefined);
+  const { data, isSuccess, isError } = useGetStockQuotesQuery(undefined);
   const [stockData, setStockData] = useState<Stock[]>([]);
 
   useEffect(() => {
@@ -19,6 +19,12 @@ function Securities() {
   return (
     <div className={`${styles.topContainer} globalPadding`}>
       <h1>Top promotions</h1>
+
+      {isError ? (
+        <div>
+          <p className={styles.error}>Failed to fetch</p>
+        </div>
+      ) : null}
       <div className={styles.cards}>
         {stockData.map((stock) => (
           <div key={stock.symbol} className={styles.card}>
