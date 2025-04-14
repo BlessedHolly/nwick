@@ -1,10 +1,17 @@
 import { useState } from "react";
 import styles from "./News.module.scss";
 import { news } from "../../NewsArray";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function News() {
   const [showOptions, setShowOptions] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filter = searchParams.get("filter");
+  const targetNews = filter
+    ? news.filter((el) =>
+        el.title.toLocaleLowerCase().includes(filter.toLowerCase())
+      )
+    : news;
 
   return (
     <div className={`globalPadding ${styles.newsContainer}`}>
@@ -23,9 +30,15 @@ function News() {
                 placeholder="What are you looking for?"
                 autoComplete="off"
                 className={styles.searchInput}
+                value={filter || ""}
+                onChange={(e) => setSearchParams({ filter: e.target.value })}
               />
             </div>
-            <button type="reset" className={styles.resetBtn}>
+            <button
+              onClick={() => setSearchParams({ filter: "" })}
+              type="reset"
+              className={styles.resetBtn}
+            >
               ✖
             </button>
 
@@ -134,7 +147,7 @@ function News() {
         </div>
       </div>
       <div className={styles.newsContainerContent}>
-        {news.map((pieceOfNews) => (
+        {targetNews.map((pieceOfNews) => (
           <div key={pieceOfNews.id} className={styles.pieceOfNews}>
             <div className={styles.imageContainer}>
               <Link to={`${pieceOfNews.id}`}>
