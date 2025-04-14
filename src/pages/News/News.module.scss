@@ -119,6 +119,10 @@
   text-decoration: none;
 }
 
+.popularSearch {
+  border: none;
+}
+
 .optionsBtn,
 .filtersBtn {
   background-color: #fff;
@@ -172,6 +176,11 @@
 .optionsSearch {
   background: none;
   font-weight: bold;
+  border: none;
+}
+
+.currentCategory {
+  border: 1px solid black;
 }
 
 .newsContainerContent {

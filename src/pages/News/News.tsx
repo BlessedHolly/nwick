@@ -5,14 +5,31 @@ import { Link, useSearchParams } from "react-router-dom";
 
 function News() {
   const [showOptions, setShowOptions] = useState(false);
+  const [category, setCategory] = useState<
+    | "politic"
+    | "economy"
+    | "sport"
+    | "technologies"
+    | "local"
+    | "U.S. news"
+    | null
+  >(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const filter = searchParams.get("filter");
-  const [sort, setSort] = useState<"popular" | "latest">("popular");
-  const targetNews = filter
+  const [sort, setSort] = useState<"popular" | "latest">("latest");
+  const targetNewsFilter = filter
     ? news.filter((el) =>
         el.title.toLocaleLowerCase().includes(filter.toLowerCase())
       )
     : news;
+
+  const targetNewsCategory = category
+    ? targetNewsFilter.filter((el) => el.category === category)
+    : targetNewsFilter;
+
+  const targetNews = sort
+    ? targetNewsCategory.filter((el) => el.sort === sort)
+    : targetNewsCategory;
 
   return (
     <div className={`globalPadding ${styles.newsContainer}`}>
@@ -66,24 +83,42 @@ function News() {
       </div>
       <div className={styles.popularSearchContainer}>
         <span className={styles.popularSearchInfo}>Popular search queries</span>
-        <a className={styles.popularSearch} href="">
+        <button
+          onClick={() => setSearchParams({ filter: "elections" })}
+          className={styles.popularSearch}
+        >
           elections
-        </a>
-        <a className={styles.popularSearch} href="">
+        </button>
+        <button
+          onClick={() => setSearchParams({ filter: "immigration" })}
+          className={styles.popularSearch}
+        >
           immigration
-        </a>
-        <a className={styles.popularSearch} href="">
-          economy
-        </a>
-        <a className={styles.popularSearch} href="">
-          war
-        </a>
-        <a className={styles.popularSearch} href="">
-          European Union
-        </a>
-        <a className={styles.popularSearch} href="">
+        </button>
+        <button
+          onClick={() => setSearchParams({ filter: "duties" })}
+          className={styles.popularSearch}
+        >
           duties
-        </a>
+        </button>
+        <button
+          onClick={() => setSearchParams({ filter: "war" })}
+          className={styles.popularSearch}
+        >
+          war
+        </button>
+        <button
+          onClick={() => setSearchParams({ filter: "European Union" })}
+          className={styles.popularSearch}
+        >
+          European Union
+        </button>
+        <button
+          onClick={() => setSearchParams({ filter: "Hamas" })}
+          className={styles.popularSearch}
+        >
+          Hamas
+        </button>
       </div>
       <div className={styles.optionsSearchContainer}>
         <div>
@@ -130,27 +165,60 @@ function News() {
           ) : null}
         </div>
         <div>
-          <a className={styles.optionsSearch} href="">
-            elections
-          </a>
-          <a className={styles.optionsSearch} href="">
-            immigration
-          </a>
-          <a className={styles.optionsSearch} href="">
+          <button
+            onClick={() => setCategory("politic")}
+            className={`${styles.optionsSearch} ${
+              category === "politic" ? styles.currentCategory : ""
+            }`}
+          >
+            politic
+          </button>
+          <button
+            onClick={() => setCategory("economy")}
+            className={`${styles.optionsSearch} ${
+              category === "economy" ? styles.currentCategory : ""
+            }`}
+          >
             economy
-          </a>
-          <a className={styles.optionsSearch} href="">
-            war
-          </a>
-          <a className={styles.optionsSearch} href="">
-            European Union
-          </a>
-          <a className={styles.optionsSearch} href="">
-            duties
-          </a>
+          </button>
+          <button
+            onClick={() => setCategory("sport")}
+            className={`${styles.optionsSearch} ${
+              category === "sport" ? styles.currentCategory : ""
+            }`}
+          >
+            sport
+          </button>
+          <button
+            onClick={() => setCategory("technologies")}
+            className={`${styles.optionsSearch} ${
+              category === "technologies" ? styles.currentCategory : ""
+            }`}
+          >
+            technologies
+          </button>
+          <button
+            onClick={() => setCategory("local")}
+            className={`${styles.optionsSearch} ${
+              category === "local" ? styles.currentCategory : ""
+            }`}
+          >
+            local
+          </button>
+          <button
+            onClick={() => setCategory("U.S. news")}
+            className={`${styles.optionsSearch} ${
+              category === "U.S. news" ? styles.currentCategory : ""
+            }`}
+          >
+            U.S. news
+          </button>
         </div>
         <div>
-          <button className={styles.filtersBtn}>
+          <button
+            onClick={() => setCategory(null)}
+            className={styles.filtersBtn}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
