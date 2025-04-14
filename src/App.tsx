@@ -1,9 +1,13 @@
+import { Provider } from "react-redux";
 import AppRotes from "./AppRotes";
+import { store } from "./store/store";
 
 function App() {
   return (
     <>
-      <AppRotes />
+      <Provider store={store}>
+        <AppRotes />
+      </Provider>
     </>
   );
 }

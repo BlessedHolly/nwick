@@ -1,0 +1,61 @@
+@use "../../variables.scss" as v;
+
+.topContainer {
+  min-height: 100vh;
+  padding-top: 142px;
+  padding-bottom: 50px;
+  background: rgb(255 248 251);
+  font-family: v.$font-monaSans;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    width: 950px;
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  flex-wrap: wrap;
+  width: 950px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.symbol {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.up {
+  color: green;
+  margin-top: 6px;
+}
+
+.down {
+  color: crimson;
+  margin-top: 6px;
+}

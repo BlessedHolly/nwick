@@ -6,7 +6,7 @@ import {
 import Layout from "./components/Layout/Layout";
 import News from "./pages/News/News";
 import About from "./pages/About/About";
-import Top from "./pages/Top/Top";
+import Securities from "./pages/Securities/Securities";
 import PieceOfNews from "./pages/PieceOfNews/PieceOfNews";
 import NotFound from "./pages/NotFound/NotFound";
 
@@ -29,8 +29,8 @@ function AppRotes() {
           element: <About />,
         },
         {
-          path: "top",
-          element: <Top />,
+          path: "securities",
+          element: <Securities />,
         },
         {
           path: "not-found",

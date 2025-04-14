@@ -53,8 +53,8 @@ function Header() {
         <NavLink className={styles.navLink} to={"/"}>
           News
         </NavLink>
-        <NavLink className={styles.navLink} to={"top"}>
-          Top
+        <NavLink className={styles.navLink} to={"securities"}>
+          Securities
         </NavLink>
         <NavLink className={styles.navLink} to={"about"}>
           About
