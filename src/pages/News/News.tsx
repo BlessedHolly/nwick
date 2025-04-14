@@ -7,6 +7,7 @@ function News() {
   const [showOptions, setShowOptions] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const filter = searchParams.get("filter");
+  const [sort, setSort] = useState<"popular" | "latest">("popular");
   const targetNews = filter
     ? news.filter((el) =>
         el.title.toLocaleLowerCase().includes(filter.toLowerCase())
@@ -90,7 +91,7 @@ function News() {
             className={styles.optionsBtn}
             onClick={() => setShowOptions((prev) => !prev)}
           >
-            Popular
+            {sort === "popular" ? "Popular" : "latest"}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -103,7 +104,28 @@ function News() {
           </button>
           {showOptions ? (
             <div className={styles.options}>
-              <span>Popular</span>
+              <button
+                className={`${styles.optionBtn} ${
+                  sort === "popular" ? styles.activeOption : ""
+                }`}
+                onClick={() => {
+                  setSort("popular");
+                  setShowOptions(false);
+                }}
+              >
+                Popular
+              </button>
+              <button
+                className={`${styles.optionBtn} ${
+                  sort === "latest" ? styles.activeOption : ""
+                }`}
+                onClick={() => {
+                  setSort("latest");
+                  setShowOptions(false);
+                }}
+              >
+                Latest
+              </button>
             </div>
           ) : null}
         </div>
