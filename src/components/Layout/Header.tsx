@@ -30,17 +30,13 @@ function Header() {
         <NavLink className={styles.navLink} to={"/"}>
           News
         </NavLink>
-        <NavLink className={styles.navLink} to={"about"}>
-          About
-        </NavLink>
         <NavLink className={styles.navLink} to={"top"}>
           Top
         </NavLink>
+        <NavLink className={styles.navLink} to={"about"}>
+          About
+        </NavLink>
       </nav>
-      <div className={styles.authContainer}>
-        <button className={styles.logUpBtn}>Log up</button>
-        <button className={styles.logInBtn}>Log in</button>
-      </div>
     </header>
   );
 }

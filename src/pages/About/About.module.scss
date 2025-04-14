@@ -1,0 +1,16 @@
+@use "../../variables.scss" as v;
+
+.aboutContainer {
+  width: 950px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-top: 142px;
+  font-family: v.$font-monaSans;
+}
+
+.text {
+  word-break: break-word;
+  white-space: pre-wrap;
+}

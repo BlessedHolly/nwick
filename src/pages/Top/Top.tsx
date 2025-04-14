@@ -1,5 +1,7 @@
+import styles from "./Top.module.scss";
+
 function Top() {
-  return <div>Top</div>;
+  return <div className={styles.topContainer}>Top</div>;
 }
 
 export default Top;

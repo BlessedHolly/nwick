@@ -1,0 +1,29 @@
+@use "../../variables.scss" as v;
+
+.not-found-container {
+  min-height: 100vh;
+  color: black;
+  font-family: v.$font-monaSans;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-paragraph {
+  font-size: 5rem;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.link {
+  color: #6c6c6c;
+  text-decoration: none;
+}
+
+@media (max-width: 394px) {
+  .not-found-paragraph {
+    font-size: 3.3rem;
+  }
+}

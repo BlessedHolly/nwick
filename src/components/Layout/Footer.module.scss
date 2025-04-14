@@ -1,0 +1,50 @@
+@use "../../variables.scss" as v;
+
+.footerContainer {
+  height: 280px;
+  padding: 40px 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-family: v.$font-monaSans;
+  border-top: 1px solid rgb(181, 181, 181);
+  margin-top: 50px;
+
+  svg {
+    align-self: flex-start;
+  }
+}
+
+.linksEmailContainer {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.email {
+  font-size: 3rem;
+  position: relative;
+  bottom: -12px;
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  color: rgb(91, 91, 204);
+  text-decoration: none;
+
+  &:hover {
+    color: #7213e8;
+  }
+}
+
+.linksWarningContainer {
+  display: flex;
+  flex-direction: column;
+}
