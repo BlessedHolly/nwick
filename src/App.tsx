@@ -1,5 +1,4 @@
 import { Provider } from "react-redux";
-
 import AppRotes from "./AppRotes";
 import { store } from "./store/store";
 
