@@ -8,6 +8,7 @@ import News from "./pages/News/News";
 import About from "./pages/About/About";
 import Securities from "./pages/Securities/Securities";
 import PieceOfNews from "./pages/PieceOfNews/PieceOfNews";
+
 import NotFound from "./pages/NotFound/NotFound";
 
 function AppRotes() {
