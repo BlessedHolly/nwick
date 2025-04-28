@@ -18,6 +18,7 @@ function AppRotes() {
       children: [
         {
           index: true,
+
           element: <News />,
         },
         {
