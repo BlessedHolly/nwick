@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import News from "./pages/News/News";
+
 import About from "./pages/About/About";
 import Securities from "./pages/Securities/Securities";
 import PieceOfNews from "./pages/PieceOfNews/PieceOfNews";
