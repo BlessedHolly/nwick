@@ -5,6 +5,7 @@ import styles from "./PieceOfNews.module.scss";
 function PieceOfNews() {
   const { id } = useParams();
   if (!id) return <Navigate to="/not-found" />;
+
   if (!allId.includes(parseInt(id))) return <Navigate to="/not-found" />;
   const pieceOfNews = news.find((el) => el.id === parseInt(id));
 
